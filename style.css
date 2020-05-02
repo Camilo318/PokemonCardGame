@@ -37,11 +37,11 @@ h1 {
 }
 
 .game__card {
-    
     width: 125px;
     height: 175px;
     position: relative;
     cursor: pointer;
+    transform-style: preserve-3d;
 }
 
 .card__face.matched .card__value {
@@ -50,6 +50,12 @@ h1 {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-delay: 500ms;
+        /* -moz-animation-name: dance;
+        -moz-animation-duration: 1.5s;
+        -moz-animation-timing-function: linear;
+        -moz-animation-iteration-count: infinite;
+        -moz-animation-delay: 500ms; */
+
 }
 
 @keyframes dance {
@@ -73,9 +79,16 @@ h1 {
     justify-content: center;
     align-items: center;
     backface-visibility: hidden;
-    background-color: teal;
     border-radius: 5px;
     transition: transform 0.5s ease-in-out;
+}
+
+.card__back {
+    background-color: teal;
+}
+
+.card__front {
+    background-color: darkslateblue;
 }
 
 .game__card.visible .card__back {
@@ -96,13 +109,14 @@ h1 {
     max-width: 100px;
 }
 
-.card__back:hover img {
+.card__back img, .card__front .card__value {
     transition: transform 0.3s;
+}
+.card__back:hover img {
     transform: rotate(7deg);
 }
 
 .card__front:hover .card__value {
-    transition: transform 0.3s;
     transform: scale(1.1);
 
 }
@@ -111,6 +125,13 @@ h1 {
 @media screen and (max-width: 600px) {
     .game {
         grid-template-columns: repeat(2, auto);
+    }
+    .game__info {
+        font-size: 1.3rem;
+    }
+
+    h1 {
+        font-size: 1.6rem;
     }
 
 }

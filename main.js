@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded', swal('Billie', 'When we all fall asleep, where do we go?'))
+document.addEventListener('DOMContentLoaded',
+swal('🙀', 'Go ahead and catch em all'))
 
 const cards = document.querySelectorAll('.game__card')
 
