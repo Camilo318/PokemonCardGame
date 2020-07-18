@@ -44,8 +44,11 @@ h1 {
     cursor: pointer;
     transform-style: preserve-3d;
 }
+.game__card.visible, .game__card.matched {
+    cursor: default;
+}
 
-.card__face.matched .card__value {
+.game__card.matched .card__face .card__value {
     animation-name: dance;
     animation-duration: 1.5s;
     animation-timing-function: linear;
