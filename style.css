@@ -10,11 +10,14 @@ html {
     min-height: 100vh;
 }
 
+body {
+    background-color: #e4e3e3;
+}
+
 h1 {
     text-align: center;
-    font-weight: bold;
-    /* font-family: Arial, Helvetica, sans-serif; */
     font-size: 3rem;
+    color: darkslategrey;
     margin: 20px 0;
 }
 
@@ -114,6 +117,25 @@ h1 {
 .card__front:hover .card__value {
     transform: scale(1.1);
 
+}
+
+footer {
+    width: 100%;
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+} 
+
+footer > div {
+    margin: 20px;
+}
+
+footer a {
+    text-decoration: none;
+    color: darkslateblue;
+    font-weight: 600;
 }
 
 
