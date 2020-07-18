@@ -66,7 +66,7 @@ class Game {
     gameOver() {
         clearInterval(this.countDown)
         this.audioController.gameOver()
-        swal('Sorry 😿', 'Better luck next pal', 'error', {
+        swal('Sorry 😿', 'Better luck next time pal', 'error', {
             buttons: ['Exit', 'Retry'] 
         })
             .then((value) => {
