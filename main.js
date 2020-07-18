@@ -108,6 +108,7 @@ class Game {
     }
 
     cardsMatch(card1,card2) {
+        this.matchIndicator()
         this.matchedCards.push(card1)
         this.matchedCards.push(card2)
         card1.classList.add('matched')
@@ -120,7 +121,7 @@ class Game {
     victory() {
         clearInterval(this.countDown)
         this.audioController.victory()
-        swal('You truly are a Pokemon Master! 😼',
+        swal('You are truly a Pokemon Master! 😼',
         `You did it my friend!\nTime Remaining: ${this.timeRemaining}\nFlips: ${this.totalClicks}`, 
         'success',
         {
@@ -162,8 +163,15 @@ class Game {
 
     canFlipCard(card) {
         return (!this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck)
-
         //Checking if the card can be flipped
+    }
+
+    matchIndicator() {
+        this.indicator = document.getElementById('successIndicator')
+        this.indicator.classList.add('match')
+        this.indicator.addEventListener('animationend', () => {
+            this.indicator.classList.remove('match')
+        })
     }
 }
 
