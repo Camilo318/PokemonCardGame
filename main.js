@@ -28,7 +28,6 @@ class Game {
     constructor(time, cards) {
         this.cards = cards
         this.Totaltime = time
-        this.timeRemaining = time
         this.timer = document.getElementById('time')
         this.flips = document.getElementById('flips')
         //Instanciamos la clase AudioController
@@ -66,10 +65,16 @@ class Game {
 
     gameOver() {
         clearInterval(this.countDown)
-        this.audioController.stopMusic()
-        swal('Sorry', 'Better luck next time', 'error')
-            .then(() => {
-                this.startGame()  //Reseting the game after we lose
+        this.audioController.gameOver()
+        swal('Sorry 😿', 'Better luck next pal', 'error', {
+            buttons: ['Exit', 'Retry'] 
+        })
+            .then((value) => {
+                if (value) {
+                    this.startGame()  //Reseting the game after we lose
+                } else {
+                    document.location.reload()
+                }
             })
     }
 
@@ -114,12 +119,20 @@ class Game {
 
     victory() {
         clearInterval(this.countDown)
-        this.audioController.stopMusic()
-        swal('You did it my friend! 😼😼',
-         `You truly are Pokemon Master! \nTime Remaining: ${this.timeRemaining}\nFlips: ${this.totalClicks}`, 
-         'success').then(() => {
-             this.startGame()
-         })
+        this.audioController.victory()
+        swal('You truly are a Pokemon Master! 😼',
+        `You did it my friend!\nTime Remaining: ${this.timeRemaining}\nFlips: ${this.totalClicks}`, 
+        'success',
+        {
+            buttons: ['Exit', 'Play again']
+        })
+            .then((value) => {
+                if (value) {
+                    this.startGame()
+                } else {
+                    window.location.reload()
+                }
+            })
     }
 
     cardsMisMatch(card1, card2) {
@@ -129,7 +142,7 @@ class Game {
             card1.classList.remove('visible')
             card2.classList.remove('visible')
             this.busy = false
-        }, 1000)
+        }, 750)
     }
 
     hideCards() {
@@ -149,6 +162,8 @@ class Game {
 
     canFlipCard(card) {
         return (!this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck)
+
+        //Checking if the card can be flipped
     }
 }
 
@@ -160,14 +175,20 @@ document.addEventListener('DOMContentLoaded', ready)
 
 
 function ready() {
-    swal('Go ahead and catch \'em all 🙀', 'You\'ve got 100 seconds, hurry up!', 'warning')
-        .then(() => {
-            const game = new Game(100, cards)  //Instanciamos la clase Game (tiempo, arreglo de cartas)
-            game.startGame()  //Ejecutamos el metodo que inicia el juego
+    swal('Go ahead and catch \'em all 🙀',
+        'You\'ve got 100 seconds pal, hurry up!',
+        'warning',
+        {
+            button: 'Let\'s go!'
+        })
+        .then((value) => {
+            console.log(value)
+            const game = new Game(100, cards) 
+            //Instanciamos la clase Game (tiempo, arreglo de cartas)
+            game.startGame() //Ejecutamos el metodo que inicia el juego
             
             cards.forEach(card => {
                 card.addEventListener('click', () => game.flipCard(card))
             })
-
         })
 }
