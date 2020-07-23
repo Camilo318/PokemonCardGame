@@ -31,7 +31,7 @@ h1 {
 }
 
 .game__info {
-    /* font-family: Arial, Helvetica, sans-serif; */
+
     font-size: 2rem;
     grid-column: 1 / -1;
     display: flex;
@@ -121,11 +121,11 @@ h1 {
 
 .gotcha {
     position: fixed;
-    top: 25%;
+    top: 50%;
     left: 50%;
     opacity: 0;
     visibility: hidden;
-    transform: translateX(-50%);
+    transform: translate(-50%);
 }
 
 .gotcha.match {
@@ -134,12 +134,17 @@ h1 {
 }
 
 @keyframes getMatch {
-    from {
+    0%, 100% {
         opacity: 0;
     }
-    to {
+    25% {
+        opacity: 0.5;
         visibility: visible;
+    }
+
+    50% {
         opacity: 1;
+        visibility: visible;
     }
 }
 
