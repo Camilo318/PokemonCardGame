@@ -69,13 +69,9 @@ class Game {
         swal('Sorry 😿', 'Better luck next time pal', 'error', {
             buttons: ['Exit', 'Retry'] 
         })
-            .then((value) => {
-                if (value) {
-                    this.startGame()  //Reseting the game after we lose
-                } else {
-                    document.location.reload()
-                }
-            })
+        .then(value => {
+            value ? this.startGame() : document.location.reload()
+        })
     }
 
     flipCard(card) {
@@ -127,13 +123,9 @@ class Game {
         {
             buttons: ['Exit', 'Play again']
         })
-            .then(value => {
-                if (value) {
-                    this.startGame()
-                } else {
-                    window.location.reload()
-                }
-            })
+        .then(value => {
+            value ? this.startGame() : window.location.reload()
+        })
     }
 
     cardsMisMatch(card1, card2) {
@@ -201,11 +193,9 @@ function ready() {
         )
         .then(value => {
             console.log(value)
-            if (value) {
-                game = new Game(80, cards, 0.5) 
-            } else {
-                game = new Game(80, cards, 0)
-            }
+            const vol = 0.5
+            value ? vol = 0.5 : vol = 0
+            game = new Game(80, cards, vol)
             game.startGame()
             cards.forEach(card => {
                 card.addEventListener('click', () => game.flipCard(card))
