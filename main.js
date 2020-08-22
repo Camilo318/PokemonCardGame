@@ -1,7 +1,7 @@
 class AudioController {
-    constructor() {
+    constructor(vol) {
         this.bgMusic = new Audio('sounds/pokemon-opening.mp3') //Audio object
-        this.bgMusic.volume = 0.5
+        this.bgMusic.volume = vol
         this.bgMusic.loop = 1
     }
 
@@ -25,13 +25,13 @@ class AudioController {
 
 
 class Game {
-    constructor(time, cards) {
+    constructor(time, cards, vol) {
         this.cards = cards
         this.Totaltime = time
         this.timer = document.getElementById('time')
         this.flips = document.getElementById('flips')
         //Instanciamos la clase AudioController
-        this.audioController = new AudioController()
+        this.audioController = new AudioController(vol)
     }
     startGame() { //Starting a new game
         this.cardToCheck = null
@@ -127,7 +127,7 @@ class Game {
         {
             buttons: ['Exit', 'Play again']
         })
-            .then((value) => {
+            .then(value => {
                 if (value) {
                     this.startGame()
                 } else {
@@ -183,20 +183,33 @@ document.addEventListener('DOMContentLoaded', ready)
 
 
 function ready() {
+    let game = '';
     swal('Go ahead and catch \'em all 🙀',
-        'You\'ve got 100 seconds pal, hurry up!',
+        'You\'ve got 80 seconds pal, hurry up!',
         'warning',
         {
             button: 'Let\'s go!'
-        })
-        .then((value) => {
+        }
+    )
+    .then(value => {
+        console.log(value)
+        swal('Sound Options', 'Would you like the game to play sound?',
+            'info',
+            {
+                buttons: ['No Sound', 'Sound']
+            }
+        )
+        .then(value => {
             console.log(value)
-            const game = new Game(100, cards) 
-            //Instanciamos la clase Game (tiempo, arreglo de cartas)
-            game.startGame() //Ejecutamos el metodo que inicia el juego
-            
+            if (value) {
+                game = new Game(80, cards, 0.5) 
+            } else {
+                game = new Game(80, cards, 0)
+            }
+            game.startGame()
             cards.forEach(card => {
                 card.addEventListener('click', () => game.flipCard(card))
             })
         })
+    })
 }
