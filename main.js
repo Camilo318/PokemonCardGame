@@ -45,7 +45,7 @@ class Game {
             this.audioController.startMusic()
             this.countDown = this.startCountDown()
             this.busy = false
-        }, 500)
+        }, 300)
 
         this.flips.innerText = this.totalClicks
         this.timer.innerText = this.timeRemaining
@@ -66,11 +66,14 @@ class Game {
     gameOver() {
         clearInterval(this.countDown)
         this.audioController.gameOver()
-        swal('Sorry 😿', 'Better luck next time pal', 'error', {
+        swal('Sorry 😿',
+        'Better luck next time pal',
+        'error',
+        {
             buttons: ['Exit', 'Retry'] 
         })
         .then(value => {
-            value ? this.startGame() : document.location.reload()
+            value ? this.startGame() : location.reload()
         })
     }
 
@@ -117,19 +120,21 @@ class Game {
     victory() {
         clearInterval(this.countDown)
         this.audioController.victory()
-        swal('You are truly a Pokemon Master! 😼',
-        `You did it my friend!\nTime Remaining: ${this.timeRemaining}\nFlips: ${this.totalClicks}`, 
+        swal('You truly are a Pokemon Master! 😼',
+        `You did it my friend!
+        Time Remaining: ${this.timeRemaining}
+        Flips: ${this.totalClicks}`, 
         'success',
         {
             buttons: ['Exit', 'Play again']
         })
         .then(value => {
-            value ? this.startGame() : window.location.reload()
+            value ? this.startGame() : location.reload()
         })
     }
 
     cardsMisMatch(card1, card2) {
-        this.busy = true
+        this.busy = true // User cannot flip other cards
         //Giving time to the user to remember the image
         setTimeout(() => {
             card1.classList.remove('visible')
@@ -175,7 +180,7 @@ document.addEventListener('DOMContentLoaded', ready)
 
 
 function ready() {
-    let game = '';
+    let game = null;
     swal('Go ahead and catch \'em all 🙀',
         'You\'ve got 80 seconds pal, hurry up!',
         'warning',
@@ -183,22 +188,21 @@ function ready() {
             button: 'Let\'s go!'
         }
     )
-    .then(value => {
-        console.log(value)
-        swal('Sound Options', 'Would you like the game to play sound?',
-            'info',
-            {
-                buttons: ['No Sound', 'Sound']
-            }
-        )
+
+    .then(() => {
+        swal('Sound Options',
+        'Would you like the game to play sound?',
+        'info',
+        {
+            buttons: ['No, do not play sound', 'Yes, play sound']
+        })
         .then(value => {
-            console.log(value)
-            const vol = 0.5
-            value ? vol = 0.5 : vol = 0
+            const vol = value ? 0.5 : 0 
             game = new Game(80, cards, vol)
             game.startGame()
             cards.forEach(card => {
-                card.addEventListener('click', () => game.flipCard(card))
+                card.addEventListener('click',
+                () => game.flipCard(card))
             })
         })
     })
