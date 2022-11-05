@@ -1,171 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <title>Pokemon Card</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-</head>
-<body>
-    <h1>Gotta Catch 'Em All</h1>
+  </head>
+  <body>
+    <h1>Gotta catch 'em all</h1>
     <div class="game">
-        <div class="game__info">
-
-            <div class="game__time">
-                Time <span id="time"></span>
-            </div>
-            <div class="game__flips">
-                Flips <span id="flips">0</span>
-            </div>
-
+      <div class="game__info">
+        <div class="game__time">Time <span id="time"></span></div>
+        <div class="game__flips">Flips <span id="flips">0</span></div>
+      </div>
+      <div class="game__card">
+        <div class="card__back card__face">
+          <img src="img/new.png" alt="" />
         </div>
-        <div class="game__card">
-            <div class="card__back card__face">
-                <img src="img/new.png" alt="">
-            </div>
-            <div class="card__front card__face">
-                <img src="img/squirtle.png" alt="" class="card__value">
-            </div>
+        <div class="card__front card__face">
+          <img src="img/squirtle.png" alt="" class="card__value" />
         </div>
-        <div class="game__card">
-            <div class="card__back card__face">
-                <img src="img/new.png" alt="">
-            </div>
-            <div class="card__front card__face">
-                <img src="img/bulbasaur.png" alt="" class="card__value">
-            </div>
+      </div>
+      <div class="game__card">
+        <div class="card__back card__face">
+          <img src="img/new.png" alt="" />
         </div>
-        <div class="game__card">
-            <div class="card__back card__face">
-                <img src="img/new.png" alt="">
-            </div>
-            <div class="card__front card__face">
-                <img src="img/bulbasaur.png" alt="" class="card__value">
-
-            </div>
+        <div class="card__front card__face">
+          <img src="img/bulbasaur.png" alt="" class="card__value" />
         </div>
-        <div class="game__card">
-            <div class="card__back card__face">
-                <img src="img/new.png" alt="">
-            </div>
-            <div class="card__front card__face">
-                <img src="img/charmander.png" alt="" class="card__value">
-            </div>
+      </div>
+      <div class="game__card">
+        <div class="card__back card__face">
+          <img src="img/new.png" alt="" />
         </div>
-        <div class="game__card">
-            <div class="card__back card__face">
-                <img src="img/new.png" alt="">
-            </div>
-            <div class="card__front card__face">
-                <img src="img/charmander.png" alt="" class="card__value">
-            </div>
+        <div class="card__front card__face">
+          <img src="img/bulbasaur.png" alt="" class="card__value" />
         </div>
-        <div class="game__card">
-            <div class="card__back card__face">
-                <img src="img/new.png" alt="">
-            </div>
-            <div class="card__front card__face">
-                <img src="img/eevee.png" alt="" class="card__value">
-            </div>
+      </div>
+      <div class="game__card">
+        <div class="card__back card__face">
+          <img src="img/new.png" alt="" />
         </div>
-        <div class="game__card">
-            <div class="card__back card__face">
-                <img src="img/new.png" alt="">
-            </div>
-            <div class="card__front card__face">
-                <img src="img/eevee.png" alt="" class="card__value">
-            </div>
+        <div class="card__front card__face">
+          <img src="img/charmander.png" alt="" class="card__value" />
         </div>
-        <div class="game__card">
-            <div class="card__back card__face">
-                <img src="img/new.png" alt="">
-            </div>
-            <div class="card__front card__face">
-                <img src="img/jigglypuff.png" alt="" class="card__value">
-            </div>
+      </div>
+      <div class="game__card">
+        <div class="card__back card__face">
+          <img src="img/new.png" alt="" />
         </div>
-        <div class="game__card">
-            <div class="card__back card__face">
-                <img src="img/new.png" alt="">
-            </div>
-            <div class="card__front card__face">
-                <img src="img/jigglypuff.png" alt="" class="card__value">
-            </div>
+        <div class="card__front card__face">
+          <img src="img/charmander.png" alt="" class="card__value" />
         </div>
-        <div class="game__card">
-            <div class="card__back card__face">
-                <img src="img/new.png" alt="">
-            </div>
-            <div class="card__front card__face">
-                <img src="img/pikachu.png" alt="" class="card__value">
-            </div>
+      </div>
+      <div class="game__card">
+        <div class="card__back card__face">
+          <img src="img/new.png" alt="" />
         </div>
-        <div class="game__card">
-            <div class="card__back card__face">
-                <img src="img/new.png" alt="">
-            </div>
-            <div class="card__front card__face">
-                <img src="img/pikachu.png" alt="" class="card__value">
-            </div>
+        <div class="card__front card__face">
+          <img src="img/eevee.png" alt="" class="card__value" />
         </div>
-        <div class="game__card">
-            <div class="card__back card__face">
-                <img src="img/new.png" alt="">
-            </div>
-            <div class="card__front card__face">
-                <img src="img/psyduck.png" alt="" class="card__value">
-            </div>
+      </div>
+      <div class="game__card">
+        <div class="card__back card__face">
+          <img src="img/new.png" alt="" />
         </div>
-        <div class="game__card">
-            <div class="card__back card__face">
-                <img src="img/new.png" alt="">
-            </div>
-            <div class="card__front card__face">
-                <img src="img/psyduck.png" alt="" class="card__value">
-            </div>
+        <div class="card__front card__face">
+          <img src="img/eevee.png" alt="" class="card__value" />
         </div>
-        <div class="game__card">
-            <div class="card__back card__face">
-                <img src="img/new.png" alt="">
-            </div>
-            <div class="card__front card__face">
-                <img src="img/snorlax.png" alt="" class="card__value">
-            </div>
+      </div>
+      <div class="game__card">
+        <div class="card__back card__face">
+          <img src="img/new.png" alt="" />
         </div>
-        <div class="game__card">
-            <div class="card__back card__face">
-                <img src="img/new.png" alt="">
-            </div>
-            <div class="card__front card__face">
-                <img src="img/snorlax.png" alt="" class="card__value">
-            </div>
+        <div class="card__front card__face">
+          <img src="img/jigglypuff.png" alt="" class="card__value" />
         </div>
-        <div class="game__card">
-            <div class="card__back card__face">
-                <img src="img/new.png" alt="">
-            </div>
-            <div class="card__front card__face">
-                <img src="img/squirtle.png" alt="" class="card__value">
-            </div>
+      </div>
+      <div class="game__card">
+        <div class="card__back card__face">
+          <img src="img/new.png" alt="" />
         </div>
+        <div class="card__front card__face">
+          <img src="img/jigglypuff.png" alt="" class="card__value" />
+        </div>
+      </div>
+      <div class="game__card">
+        <div class="card__back card__face">
+          <img src="img/new.png" alt="" />
+        </div>
+        <div class="card__front card__face">
+          <img src="img/pikachu.png" alt="" class="card__value" />
+        </div>
+      </div>
+      <div class="game__card">
+        <div class="card__back card__face">
+          <img src="img/new.png" alt="" />
+        </div>
+        <div class="card__front card__face">
+          <img src="img/pikachu.png" alt="" class="card__value" />
+        </div>
+      </div>
+      <div class="game__card">
+        <div class="card__back card__face">
+          <img src="img/new.png" alt="" />
+        </div>
+        <div class="card__front card__face">
+          <img src="img/psyduck.png" alt="" class="card__value" />
+        </div>
+      </div>
+      <div class="game__card">
+        <div class="card__back card__face">
+          <img src="img/new.png" alt="" />
+        </div>
+        <div class="card__front card__face">
+          <img src="img/psyduck.png" alt="" class="card__value" />
+        </div>
+      </div>
+      <div class="game__card">
+        <div class="card__back card__face">
+          <img src="img/new.png" alt="" />
+        </div>
+        <div class="card__front card__face">
+          <img src="img/snorlax.png" alt="" class="card__value" />
+        </div>
+      </div>
+      <div class="game__card">
+        <div class="card__back card__face">
+          <img src="img/new.png" alt="" />
+        </div>
+        <div class="card__front card__face">
+          <img src="img/snorlax.png" alt="" class="card__value" />
+        </div>
+      </div>
+      <div class="game__card">
+        <div class="card__back card__face">
+          <img src="img/new.png" alt="" />
+        </div>
+        <div class="card__front card__face">
+          <img src="img/squirtle.png" alt="" class="card__value" />
+        </div>
+      </div>
     </div>
 
     <div class="gotcha" id="successIndicator">
-        <img src="img/gotcha.png" alt="Success Indicator">
+      <img src="img/gotcha.png" alt="Success Indicator" />
     </div>
 
     <footer>
-        <div class="info">
-            Made with 💜 by <a href="https://github.com/Camilo318" title="GitHub" target="_blank">Camilo Perilla</a>
+      <div class="info">
+        Made with 💜 by
+        <a
+          href="https://github.com/Camilo318"
+          title="GitHub"
+          target="_blank"
+          >Camilo Perilla</a
+        >
+      </div>
+      <div class="attribution">
+        <div>
+          Icons made by
+          <a
+            href="http://www.roundicons.com/"
+            title="Roundicons Freebies"
+            >Roundicons Freebies</a
+          >
+          from
+          <a href="https://www.flaticon.com/" title="Flaticon"
+            >www.flaticon.com</a
+          >
         </div>
-        <div class="attribution">
-            <div>Icons made by <a href="http://www.roundicons.com/" title="Roundicons Freebies">Roundicons Freebies</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-        </div>
+      </div>
     </footer>
     <script src="./AudioController.js"></script>
     <script src="./Game.js"></script>
     <script src="./main.js"></script>
-</body>
+  </body>
 </html>
