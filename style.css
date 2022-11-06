@@ -81,6 +81,7 @@ h1 {
   backface-visibility: hidden;
   border-radius: 5px;
   transition: transform 0.5s ease-in-out;
+  will-change: transfrom;
 }
 
 .card__back {
