@@ -1,3 +1,5 @@
+import AudioController from './AudioController'
+
 class Game {
   constructor(time, cards, vol) {
     this.cards = cards
@@ -148,3 +150,5 @@ class Game {
     })
   }
 }
+
+export default Game

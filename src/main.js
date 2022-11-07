@@ -1,3 +1,6 @@
+import Game from './Game'
+import swal from 'sweetalert'
+
 document.addEventListener('DOMContentLoaded', ready)
 
 async function ready() {
