@@ -1,6 +1,8 @@
+const backgroundMusic = require('url:./sounds/pokemon-opening.mp3')
+
 class AudioController {
   constructor(vol) {
-    this.bgMusic = new Audio('sounds/pokemon-opening.mp3') //Audio object
+    this.bgMusic = new Audio(backgroundMusic) //Audio object
     this.bgMusic.volume = vol
     this.bgMusic.loop = 1
   }
@@ -21,3 +23,5 @@ class AudioController {
     this.stopMusic()
   }
 }
+
+export default AudioController

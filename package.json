@@ -1,0 +1,18 @@
+{
+  "name": "pokemon-card-game",
+  "version": "1.0.0",
+  "main": "src/main.js",
+  "repository": "git@github.com:Camilo318/PokemonCardGame.git",
+  "author": "Camilo318 <camiloa0318@gmail.com>",
+  "license": "MIT",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel --open"
+  },
+  "devDependencies": {
+    "parcel": "^2.7.0"
+  },
+  "dependencies": {
+    "sweetalert": "^2.1.2"
+  }
+}
