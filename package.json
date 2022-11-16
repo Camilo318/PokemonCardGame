@@ -7,7 +7,7 @@
   "source": "src/index.html",
   "scripts": {
     "start": "parcel --open",
-    "build": "parcel build"
+    "build": "parcel build src/index.html --public-url ./"
   },
   "devDependencies": {
     "parcel": "^2.7.0"
