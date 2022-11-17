@@ -1,7 +1,9 @@
+import AudioController from './AudioController'
+
 class Game {
   constructor(time, cards, vol) {
     this.cards = cards
-    this.Totaltime = time
+    this.totaltime = time
     this.timer = document.getElementById('time')
     this.flips = document.getElementById('flips')
     //Instanciamos la clase AudioController
@@ -11,7 +13,7 @@ class Game {
     //Starting a new game
     this.cardToCheck = null
     this.totalClicks = 0
-    this.timeRemaining = this.Totaltime
+    this.timeRemaining = this.totaltime
     this.matchedCards = []
     this.busy = true
 
@@ -148,3 +150,5 @@ class Game {
     })
   }
 }
+
+export default Game
