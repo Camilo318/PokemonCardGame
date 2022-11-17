@@ -1,13 +1,17 @@
 import AudioController from './AudioController'
 
 class Game {
-  constructor(time, cards, vol) {
+  constructor({ time, cards, vol, gameOverCb, victoryCb }) {
     this.cards = cards
     this.totaltime = time
     this.timer = document.getElementById('time')
     this.flips = document.getElementById('flips')
+
     //Instanciamos la clase AudioController
     this.audioController = new AudioController(vol)
+    // these callback will return the choice player made thru popups (Promise<boolean>)
+    this.gameOverCallback = gameOverCb
+    this.victoryCallback = victoryCb
   }
   startGame() {
     //Starting a new game
@@ -42,10 +46,9 @@ class Game {
   gameOver() {
     clearInterval(this.countDown)
     this.audioController.gameOver()
-    swal('Sorry 😿', 'Better luck next time pal', 'error', {
-      buttons: ['Exit', 'Retry']
-    }).then(value => {
-      value ? this.startGame() : location.reload()
+    // the result of this callback will decide the curse of action
+    this.gameOverCallback().then(playerChoice => {
+      playerChoice ? this.startGame() : location.reload()
     })
   }
 
@@ -94,18 +97,12 @@ class Game {
   victory() {
     clearInterval(this.countDown)
     this.audioController.victory()
-    swal(
-      'You truly are a Pokemon Master! 😼',
-      `You did it my friend!
-        Time Remaining: ${this.timeRemaining}
-        Flips: ${this.totalClicks}`,
-      'success',
-      {
-        buttons: ['Exit', 'Play again']
+
+    this.victoryCallback(this.timeRemaining, this.totalClicks).then(
+      playerChoice => {
+        playerChoice ? this.startGame() : location.reload()
       }
-    ).then(value => {
-      value ? this.startGame() : location.reload()
-    })
+    )
   }
 
   cardsMisMatch(card1, card2) {
